@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bullying: Compreender para Combater</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Configuração para impressão/PDF */
+        @media print {
+            .page {
+                page-break-after: always;
+                min-height: 100vh;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 40px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .page:nth-child(odd) {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 20px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .intro-text {
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: #333;
+            text-align: center;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 40px auto;
+            font-size: 1.25em;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+        }
+
+        .characteristics-box {
+            margin: 40px auto;
+            padding: 35px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            max-width: 900px;
+            border-left: 5px solid #764ba2;
+        }
+
+        .characteristics-box h3 {
+            color: #764ba2;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+        }
+
+        .characteristics-box ul {
+            list-style: none;
+            font-size: 1.2em;
+            line-height: 2.2;
+        }
+
+        .characteristics-box li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .characteristics-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+
+        .type-card {
+            background: white;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .type-card h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .type-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+
+        .consequences-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+
+        .consequence-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .consequence-item h3 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .consequence-item ul {
+            list-style: none;
+            color: #333;
+            font-size: 1.1em;
+            line-height: 2;
+            text-align: left;
+        }
+
+        .consequence-item li::before {
+            content: '• ';
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 40px auto;
+            border-left: 5px solid #ffc107;
+            max-width: 900px;
+        }
+
+        .warning-box p {
+            color: #856404;
+            font-size: 1.15em;
+            line-height: 1.8;
+        }
+
+        .combat-strategies {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+
+        .strategy {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .strategy h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+        }
+
+        .strategy h3::before {
+            content: '✓';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 15px;
+            font-size: 0.8em;
+        }
+
+        .strategy p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+        }
+
+        .cta-section h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            line-height: 1.8;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .emoji {
+            font-size: 1.3em;
+            margin: 0 5px;
+        }
+
+        /* Botão de impressão */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .print-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Página 1: Capa -->
+    <div class="page">
+        <div class="content">
+            <h1>
+                <span class="emoji">🛡️</span> 
+                Bullying: Compreender para Combater 
+                <span class="emoji">🛡️</span>
+            </h1>
+            <p class="intro-text">
+                Uma jornada de conscientização sobre um problema que afeta milhões de pessoas em todo o mundo.
+                Juntos, podemos criar ambientes mais seguros e acolhedores para todos.
+            </p>
+            <div class="cta-section">
+                <p style="font-size: 1.2em;">
+                    <strong>Sua voz importa. Sua ação faz a diferença.</strong>
+                </p>
+            </div>
+            
+            <!-- Créditos e Fontes -->
+            <div style="margin-top: 60px; background: rgba(255, 255, 255, 0.9); padding: 25px; border-radius: 10px; border-left: 4px solid #667eea;">
+                <p style="margin-bottom: 15px; color: #333; font-size: 1.1em;">
+                    <strong>Realizado por:</strong> Davi e Valenttino <em style="color: #666;">(mas ele não vai poder comparecer)</em>
+                </p>
+                <div style="color: #555;">
+                    <p style="margin-bottom: 10px; font-size: 1em;">
+                        <strong>Fontes de Pesquisa:</strong>
+                    </p>
+                    <ul style="list-style: none; font-size: 0.95em; line-height: 1.6; padding-left: 15px;">
+                        <li>• UNICEF Brasil - Prevenção ao Bullying</li>
+                        <li>• Ministério da Educação - Programa de Combate ao Bullying</li>
+                        <li>• OMS - Organização Mundial da Saúde</li>
+                        <li>• Cartilha Antibullying - Conselho Nacional de Justiça</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">1</div>
+    </div>
+
+    <!-- Página 2: O que é Bullying -->
+    <div class="page">
+        <div class="content">
+            <h2>1. O Que é Bullying?</h2>
+            
+            <div class="definition-box">
+                <p>
+                    <strong>Bullying é um comportamento agressivo e intencional</strong> que envolve um desequilíbrio de poder ou força. 
+                    É caracterizado por ações repetidas ao longo do tempo, com o objetivo de intimidar, humilhar ou causar dano 
+                    físico ou emocional a outra pessoa.
+                </p>
+            </div>
+
+            <div class="characteristics-box">
+                <h3>Características Principais:</h3>
+                <ul>
+                    <li><strong>Intencionalidade:</strong> O agressor tem a intenção clara de causar dano</li>
+                    <li><strong>Repetição:</strong> Os atos ocorrem de forma recorrente</li>
+                    <li><strong>Desequilíbrio de poder:</strong> A vítima tem dificuldade em se defender</li>
+                    <li><strong>Diversos contextos:</strong> Pode ocorrer na escola, trabalho, internet ou comunidade</li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-number">2</div>
+    </div>
+
+    <!-- Página 3: Tipos de Bullying -->
+    <div class="page">
+        <div class="content">
+            <h2>2. Tipos de Bullying</h2>
+            
+            <div class="types-grid">
+                <div class="type-card">
+                    <h3><span class="emoji">🤕</span> Físico</h3>
+                    <p>
+                        Agressões diretas como empurrões, socos, chutes, ou danos a pertences pessoais. 
+                        É o tipo mais visível e fácil de identificar.
+                    </p>
+                </div>
+                
+                <div class="type-card">
+                    <h3><span class="emoji">💬</span> Verbal</h3>
+                    <p>
+                        Insultos, xingamentos, apelidos cruéis, ameaças e comentários discriminatórios. 
+                        Deixa cicatrizes emocionais profundas.
+                    </p>
+                </div>
+                
+                <div class="type-card">
+                    <h3><span class="emoji">👥</span> Social/Relacional</h3>
+                    <p>
+                        Exclusão intencional, espalhar rumores, manipulação de amizades e isolamento social. 
+                        Visa destruir relacionamentos e reputação.
+                    </p>
+                </div>
+                
+                <div class="type-card">
+                    <h3><span class="emoji">😔</span> Psicológico</h3>
+                    <p>
+                        Intimidação, manipulação emocional, chantagem e ameaças constantes. 
+                        Causa ansiedade e medo persistente.
+                    </p>
+                </div>
+                
+                <div class="type-card">
+                    <h3><span class="emoji">🎯</span> Discriminatório</h3>
+                    <p>
+                        Baseado em preconceitos sobre raça, religião, orientação sexual, aparência ou deficiências. 
+                        Ataca a identidade da pessoa.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">3</div>
+    </div>
+
+    <!-- Página 4: Consequências -->
+    <div class="page">
+        <div class="content">
+            <h2>3. Consequências do Bullying</h2>
+            
+            <div class="consequences-grid">
+                <div class="consequence-item">
+                    <h3><span class="emoji">🧠</span> Impactos Psicológicos</h3>
+                    <ul>
+                        <li>Depressão e ansiedade</li>
+                        <li>Baixa autoestima</li>
+                        <li>Pensamentos suicidas</li>
+                        <li>Transtorno de estresse pós-traumático</li>
+                    </ul>
+                </div>
+                
+                <div class="consequence-item">
+                    <h3><span class="emoji">📚</span> Impactos Acadêmicos</h3>
+                    <ul>
+                        <li>Queda no rendimento escolar</li>
+                        <li>Absenteísmo frequente</li>
+                        <li>Abandono escolar</li>
+                        <li>Dificuldade de concentração</li>
+                    </ul>
+                </div>
+                
+                <div class="consequence-item">
+                    <h3><span class="emoji">👥</span> Impactos Sociais</h3>
+                    <ul>
+                        <li>Isolamento social</li>
+                        <li>Dificuldade em formar relacionamentos</li>
+                        <li>Problemas de confiança</li>
+                        <li>Comportamento agressivo ou retraído</li>
+                    </ul>
+                </div>
+                
+                <div class="consequence-item">
+                    <h3><span class="emoji">💔</span> Impactos Físicos</h3>
+                    <ul>
+                        <li>Distúrbios do sono</li>
+                        <li>Dores de cabeça e estômago</li>
+                        <li>Mudanças no apetite</li>
+                        <li>Lesões físicas diretas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <p>
+                    <strong>⚠️ Importante:</strong> As consequências do bullying podem persistir até a vida adulta, 
+                    afetando a saúde mental, relacionamentos e sucesso profissional das vítimas.
+                </p>
+            </div>
+        </div>
+        <div class="page-number">4</div>
+    </div>
+
+    <!-- Página 5: Como Combater -->
+    <div class="page">
+        <div class="content">
+            <h2>4. Como Combater o Bullying</h2>
+            
+            <div class="combat-strategies">
+                <div class="strategy">
+                    <h3>Para Vítimas</h3>
+                    <p>
+                        Não se cale! Procure ajuda de adultos de confiança, professores ou psicólogos. 
+                        Documente as ocorrências, mantenha evidências e lembre-se: você não está sozinho 
+                        e não é culpado pelo que está acontecendo.
+                    </p>
+                </div>
+                
+                <div class="strategy">
+                    <h3>Para Testemunhas</h3>
+                    <p>
+                        Seja um defensor ativo! Não seja um espectador passivo. Ofereça apoio à vítima, 
+                        denuncie o comportamento inadequado e ajude a criar um ambiente de respeito e inclusão.
+                    </p>
+                </div>
+                
+                <div class="strategy">
+                    <h3>Para Pais e Responsáveis</h3>
+                    <p>
+                        Mantenha comunicação aberta com seus filhos. Observe mudanças de comportamento, 
+                        ensine empatia e respeito desde cedo, e trabalhe em parceria com a escola para 
+                        resolver situações de bullying.
+                    </p>
+                </div>
+                
+                <div class="strategy">
+                    <h3>Para Escolas e Instituições</h3>
+                    <p>
+                        Implemente políticas antibullying claras, promova programas de conscientização, 
+                        treine funcionários para identificar e intervir, e crie canais seguros de denúncia.
+                    </p>
+                </div>
+                
+                <div class="strategy">
+                    <h3>Para a Sociedade</h3>
+                    <p>
+                        Promova uma cultura de respeito e tolerância. Eduque sobre diversidade e inclusão, 
+                        combata preconceitos e estereótipos, e apoie leis e políticas que protejam as vítimas.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">5</div>
+    </div>
+
+    <!-- Página 6: Conclusão -->
+    <div class="page">
+        <div class="content">
+            <div class="cta-section" style="margin-top: 100px;">
+                <h3>🌟 Juntos Somos Mais Fortes! 🌟</h3>
+                <p>
+                    O combate ao bullying é responsabilidade de todos. Cada ação conta, cada voz importa. 
+                    Seja a mudança que você quer ver no mundo. Promova gentileza, respeito e empatia.
+                </p>
+                <p style="margin-top: 30px; font-size: 1.1em;">
+                    <strong>#ChegaDeBullying</strong><br>
+                    <strong>#RespeiteAsDiferenças</strong><br>
+                    <strong>#TodosContraOBullying</strong>
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; color: #666;">
+                <p style="font-size: 1.2em;">
+                    <em>"Nenhuma forma de violência pode ser tolerada.<br>
+                    A educação e o respeito são as chaves para um mundo melhor."</em>
+                </p>
+            </div>
+        </div>
+        <div class="page-number">6</div>
+    </div>
+
+    <script>
+        // Script removido - apresentação pronta
+    </script>
+</body>
+</html>
